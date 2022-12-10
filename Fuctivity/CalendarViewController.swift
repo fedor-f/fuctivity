@@ -13,8 +13,21 @@ class CalendarViewController: DayViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Fuctivity"
+        navigationController?.navigationBar.barStyle = UIBarStyle.black
+        navigationController?.navigationBar.backgroundColor = UIColorFromRGB(rgbValue: 0xaf95fc)
 
         setStyle()
+        
+        let button = UIButton()
+        self.view.addSubview(button)
+        button.setTitle("Нажмите, чтобы распределить", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        //button.contentHorizontalAlignment = .left
+
+        button.setHeight(to: 80)
+        button.backgroundColor = UIColorFromRGB(rgbValue: 0xeb943d)
+        button.pinTop(to: self.dayView.dayHeaderView.bottomAnchor)
+        button.pin(to: self.view, [.left: 0, .right: 0])
     }
     
     func setStyle() {
@@ -29,6 +42,12 @@ class CalendarViewController: DayViewController {
         style.header.separatorColor = color
         self.updateStyle(style)
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//
+//        navigationController?.setToolbarHidden(true, animated: false)
+//    }
     
     func UIColorFromRGB(rgbValue: UInt) -> UIColor {
         return UIColor(
