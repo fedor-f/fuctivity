@@ -95,6 +95,7 @@ class ChillHourViewController: UIViewController {
     private func continueAction() {
         self.navigationController?.pushViewController(self.categoryDescriptionViewController,
                                                       animated: true)
+        ChillEvent.time = labelValue
     }
     
     @objc

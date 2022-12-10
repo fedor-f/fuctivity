@@ -51,6 +51,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C012E72294528A300C9592C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4C012E662944A4C300C9592C /* ColorFromHexExtension.swift */,
+				4CE07F8729426F86001458C7 /* UIViewPin.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4C012E73294528B800C9592C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4CE07F77294266D5001458C7 /* ViewController.swift */,
+				4CE07F892942720B001458C7 /* CalendarViewController.swift */,
+				4C012E682944A53800C9592C /* ChillHourViewController.swift */,
+				4C012E702944F04000C9592C /* CategoryDescriptionViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4C012E74294528D500C9592C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4C012E6E2944DC3A00C9592C /* CategoryStorage.swift */,
+				4C012E6C2944DAC300C9592C /* ChillEvent.swift */,
+				4C012E6A2944C3B800C9592C /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		4CE07F67294266D5001458C7 = {
 			isa = PBXGroup;
 			children = (
@@ -70,19 +100,13 @@
 		4CE07F72294266D5001458C7 /* Fuctivity */ = {
 			isa = PBXGroup;
 			children = (
-				4CE07F8729426F86001458C7 /* UIViewPin.swift */,
+				4C012E74294528D500C9592C /* Models */,
+				4C012E73294528B800C9592C /* ViewControllers */,
+				4C012E72294528A300C9592C /* Extensions */,
 				4CE07F73294266D5001458C7 /* AppDelegate.swift */,
 				4CE07F75294266D5001458C7 /* SceneDelegate.swift */,
-				4CE07F77294266D5001458C7 /* ViewController.swift */,
 				4CE07F7C294266D7001458C7 /* Assets.xcassets */,
 				4CE07F81294266D7001458C7 /* Info.plist */,
-				4CE07F892942720B001458C7 /* CalendarViewController.swift */,
-				4C012E662944A4C300C9592C /* ColorFromHexExtension.swift */,
-				4C012E682944A53800C9592C /* ChillHourViewController.swift */,
-				4C012E6A2944C3B800C9592C /* User.swift */,
-				4C012E6C2944DAC300C9592C /* ChillEvent.swift */,
-				4C012E6E2944DC3A00C9592C /* CategoryStorage.swift */,
-				4C012E702944F04000C9592C /* CategoryDescriptionViewController.swift */,
 			);
 			path = Fuctivity;
 			sourceTree = "<group>";

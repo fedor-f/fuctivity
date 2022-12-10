@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class ChillEvent {
-    public var time: AnyObject = (Any).self as AnyObject
+    public static var time: Int = 0
     public var description: String = ""
     public var date: Date = Date()
     public var category: String = ""

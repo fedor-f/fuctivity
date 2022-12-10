@@ -26,6 +26,11 @@ class CategoryDescriptionViewController: UIViewController {
         setupTextView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hourLabel.setTitle("\(ChillEvent.time) ч. отдыха", for: .normal)
+    }
+    
     private func setupContinueButton() {
         self.view.addSubview(continueButton)
         continueButton.setTitle("Продолжить", for: .normal)
@@ -44,7 +49,7 @@ class CategoryDescriptionViewController: UIViewController {
     
     private func setupHourInfoLabel() {
         self.view.addSubview(hourLabel)
-        hourLabel.setTitle("2 ч. отдыха", for: .normal)
+        hourLabel.setTitle("\(ChillEvent.time) ч. отдыха", for: .normal)
         hourLabel.setTitleColor(.black, for: .normal)
         hourLabel.addTarget(self, action: #selector(continueAction), for: .touchUpInside)
         hourLabel.backgroundColor = UIColor.UIColorFromRGB(rgbValue: 0xaf95fc)
