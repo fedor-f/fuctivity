@@ -17,6 +17,7 @@ class ChillHourViewController: UIViewController {
     let buttonDecrease = UIButton()
     var currentDate = Date()
     let dateLabel = UILabel()
+    let categoryDescriptionViewController = CategoryDescriptionViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,7 +93,8 @@ class ChillHourViewController: UIViewController {
     
     @objc
     private func continueAction() {
-        
+        self.navigationController?.pushViewController(self.categoryDescriptionViewController,
+                                                      animated: true)
     }
     
     @objc
