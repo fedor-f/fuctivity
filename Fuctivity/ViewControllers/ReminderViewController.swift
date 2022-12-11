@@ -139,7 +139,38 @@ class ReminderViewController: UIViewController {
         event.lineBreakMode = .byTruncatingTail
 
         ChillEvent.eventStorage.append(event)
+        
+        createNotification()
+        
         navigationController?.popToRootViewController(animated: true)
+    }
+    
+    private func createNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = NSString.localizedUserNotificationString(forKey: "We have a new message for you", arguments: nil)
+        content.body = NSString.localizedUserNotificationString(forKey: "Open the app for see", arguments: nil)
+        content.sound = UNNotificationSound.default
+        content.badge = 1
+        let identifier = UUID().uuidString
+
+        var dateInfo = DateComponents()
+        dateInfo.day = 11 //Put your day
+        dateInfo.month = 12 //Put your month
+        dateInfo.year = 2022 // Put your year
+        dateInfo.hour = 22 //Put your hour
+        dateInfo.minute = 50 //Put your minutes
+            
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateInfo, repeats: false)
+            
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        let center = UNUserNotificationCenter.current()
+        center.add(request) { (error) in
+            if let error = error {
+                print("Error \(error.localizedDescription)")
+            } else{
+                print("send!!")
+            }
+        }
     }
     
     private func setupLabels() {

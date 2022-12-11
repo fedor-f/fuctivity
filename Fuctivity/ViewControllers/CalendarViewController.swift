@@ -36,11 +36,26 @@ class CalendarViewController: DayViewController {
         button.backgroundColor = UIColor.UIColorFromRGB(rgbValue: 0xeb943d)
         button.pinTop(to: self.dayView.dayHeaderView.bottomAnchor)
         button.pin(to: self.view, [.left: 0, .right: 0])
+        getNotified()
+    }
+    
+    private func getNotified() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(storeChanged(_:)),
+                                               name: .EKEventStoreChanged,
+                                               object: nil)
+    }
+    
+    @objc
+    private func storeChanged(_ notification: Notification) {
+        reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.barStyle = UIBarStyle.black
+        getNotified()
+        reloadData()
         //navigationController?.navigationBar.backgroundColor = UIColorFromRGB(rgbValue: 0xaf95fc)
     }
     
