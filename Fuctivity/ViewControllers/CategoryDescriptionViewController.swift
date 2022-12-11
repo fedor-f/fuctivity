@@ -52,6 +52,9 @@ class CategoryDescriptionViewController: UIViewController {
     @objc
     private func continueAction() {
         self.navigationController?.pushViewController(self.reminderViewController, animated: true)
+        
+        ChillEvent.eventDescription = textView.text
+        ChillEvent.categoryOfEvent = (categoryButton.titleLabel?.text)!
     }
     
     private func setupHourInfoLabel() {

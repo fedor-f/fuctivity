@@ -96,6 +96,7 @@ class ChillHourViewController: UIViewController {
         self.navigationController?.pushViewController(self.categoryDescriptionViewController,
                                                       animated: true)
         ChillEvent.time = labelValue
+        ChillEvent.date = dateLabel.text ?? ""
     }
     
     @objc

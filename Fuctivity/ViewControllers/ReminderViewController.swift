@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CalendarKit
 
 class ReminderViewController: UIViewController {
     
@@ -42,6 +43,9 @@ class ReminderViewController: UIViewController {
         datePicker.preferredDatePickerStyle = .compact
         datePicker.tintColor = .orange
         datePicker.backgroundColor = UIColor.UIColorFromRGB(rgbValue: 0xf1ebfa)
+        
+        datePicker.date = Calendar.current.date(byAdding: .hour, value: ChillEvent.time, to: Date())!
+        
         return datePicker
     }()
     
@@ -97,7 +101,45 @@ class ReminderViewController: UIViewController {
     
     @objc
     private func continueAction() {
+        var formatter = DateFormatter()
+
+        let date = datePicker.date
+        formatter.dateFormat = "yyyy"
+        let year = formatter.string(from: date)
+        formatter.dateFormat = "MM"
+        let month = formatter.string(from: date)
+        formatter.dateFormat = "dd"
+        var day = formatter.string(from: date)
+
+        let event = Event()
+
+        // TODO: fix next day event bug
+        formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd HH:mm"
+        let someDateTimeStart = formatter
+            .date(from: "\(year)/\(month)/\(day) \(startTimePicker.calendar.component(.hour, from: startTimePicker.date)):\(startTimePicker.calendar.component(.minute, from: startTimePicker.date))")!
         
+        var endHour = (startTimePicker.calendar.component(.hour, from: startTimePicker.date) + ChillEvent.time)
+        
+        if endHour > 24 {
+            var increment = endHour / 24
+            var dayInt = Int(day)! + increment
+            
+            day = String(dayInt)
+        }
+
+        let someDateTimeEnd = formatter
+            .date(from: "\(year)/\(month)/\(day) \(endHour % 24):\(startTimePicker.calendar.component(.minute, from: startTimePicker.date))")!
+
+        print(someDateTimeEnd)
+        event.dateInterval = DateInterval(start: someDateTimeStart, end: someDateTimeEnd)
+
+        event.text = ChillEvent.eventDescription
+        event.color = UIColor.UIColorFromRGB(rgbValue: 0xeb943d)
+        event.lineBreakMode = .byTruncatingTail
+
+        ChillEvent.eventStorage.append(event)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     private func setupLabels() {

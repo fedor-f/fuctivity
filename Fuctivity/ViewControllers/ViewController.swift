@@ -33,6 +33,9 @@ class ViewController: UIViewController {
 
     @objc
     private func calendarOpen() {
+//        calendarViewController.modalPresentationStyle = .fullScreen
+//        calendarViewController.modalTransitionStyle = .crossDissolve
+//        present(self.calendarViewController, animated: true)
         self.navigationController?.pushViewController(self.calendarViewController, animated: true)
     }
 }
