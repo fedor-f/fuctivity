@@ -16,7 +16,6 @@ class CalendarViewController: DayViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Fuctivity"
-        navigationController?.navigationBar.barStyle = UIBarStyle.black
         //navigationController?.navigationBar.backgroundColor = UIColorFromRGB(rgbValue: 0xaf95fc)
 
         setStyle()
@@ -31,6 +30,12 @@ class CalendarViewController: DayViewController {
         button.backgroundColor = UIColorFromRGB(rgbValue: 0xeb943d)
         button.pinTop(to: self.dayView.dayHeaderView.bottomAnchor)
         button.pin(to: self.view, [.left: 0, .right: 0])
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.barStyle = UIBarStyle.black
+        //navigationController?.navigationBar.backgroundColor = UIColorFromRGB(rgbValue: 0xaf95fc)
     }
     
     @objc

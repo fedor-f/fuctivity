@@ -83,7 +83,7 @@ class ChillHourViewController: UIViewController {
         let continueButton = UIButton()
         self.view.addSubview(continueButton)
         continueButton.setTitle("Продолжить", for: .normal)
-        continueButton.setTitleColor(.black, for: .normal)
+        continueButton.setTitleColor(.white, for: .normal)
         continueButton.addTarget(self, action: #selector(continueAction), for: .touchUpInside)
         continueButton.backgroundColor = UIColor.UIColorFromRGB(rgbValue: 0xaf95fc)
         continueButton.layer.cornerRadius = 12
