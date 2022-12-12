@@ -10,6 +10,19 @@ import UserNotifications
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+    
+    let calendarViewController = CalendarViewController()
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        // TODO: handle notification taps
+        if response.notification.request.content.title.starts(with: "Время отдыхать!") {
+            
+        } else if response.notification.request.content.title.starts(with: "Надеюсь, вы хорошо проводите время!") {
+            
+        }
+        completionHandler()
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let center = UNUserNotificationCenter.current()

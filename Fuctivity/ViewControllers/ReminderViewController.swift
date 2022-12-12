@@ -140,25 +140,46 @@ class ReminderViewController: UIViewController {
 
         ChillEvent.eventStorage.append(event)
         
-        createNotification()
+        createNotification(day: Int(day)!,
+                           month: Int(month)!,
+                           year: Int(year)!,
+                           hour: startTimePicker.calendar.component(.hour, from: startTimePicker.date),
+                           minute: startTimePicker.calendar.component(.minute, from: startTimePicker.date),
+                           title: "Время отдыхать!",
+                           body: "Думаем, вы уже хорошо поработали. А на сейчас запланирован отдых!")
+        
+        createNotification(day: Int(day)!,
+                           month: Int(month)!,
+                           year: Int(year)!,
+                           hour: reminderTimePicker.calendar.component(.hour, from: reminderTimePicker.date),
+                           minute: reminderTimePicker.calendar.component(.minute, from: reminderTimePicker.date),
+                           title: "Надеюсь, вы хорошо проводите время!",
+                           body: "Оцените текущий отдых для создания статистики")
         
         navigationController?.popToRootViewController(animated: true)
     }
     
-    private func createNotification() {
+    private func createNotification(day: Int,
+                                    month: Int,
+                                    year: Int,
+                                    hour: Int,
+                                    minute: Int,
+                                    title: String,
+                                    body: String) {
+        
         let content = UNMutableNotificationContent()
-        content.title = NSString.localizedUserNotificationString(forKey: "We have a new message for you", arguments: nil)
-        content.body = NSString.localizedUserNotificationString(forKey: "Open the app for see", arguments: nil)
+        content.title = NSString.localizedUserNotificationString(forKey: title, arguments: nil)
+        content.body = NSString.localizedUserNotificationString(forKey: body, arguments: nil)
         content.sound = UNNotificationSound.default
         content.badge = 1
         let identifier = UUID().uuidString
 
         var dateInfo = DateComponents()
-        dateInfo.day = 11 //Put your day
-        dateInfo.month = 12 //Put your month
-        dateInfo.year = 2022 // Put your year
-        dateInfo.hour = 22 //Put your hour
-        dateInfo.minute = 50 //Put your minutes
+        dateInfo.day = day
+        dateInfo.month = month
+        dateInfo.year = year
+        dateInfo.hour = hour
+        dateInfo.minute = minute
             
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateInfo, repeats: false)
             
