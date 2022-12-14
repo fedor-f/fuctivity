@@ -12,6 +12,8 @@
 		2400BA5B294720B800AEBB49 /* DayChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2400BA5A294720B700AEBB49 /* DayChooseViewController.swift */; };
 		2400BA5D2947494700AEBB49 /* ChooseHoursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2400BA5C2947494700AEBB49 /* ChooseHoursViewController.swift */; };
 		2400BA5F2947A98800AEBB49 /* ChooseRestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2400BA5E2947A98700AEBB49 /* ChooseRestViewController.swift */; };
+		2400BA612949A73000AEBB49 /* ColorFromHexExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2400BA602949A73000AEBB49 /* ColorFromHexExtension.swift */; };
+		2400BA652949AAE600AEBB49 /* PinElementsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2400BA642949AAE600AEBB49 /* PinElementsExtension.swift */; };
 		4CE07F74294266D5001458C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE07F73294266D5001458C7 /* AppDelegate.swift */; };
 		4CE07F76294266D5001458C7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE07F75294266D5001458C7 /* SceneDelegate.swift */; };
 		4CE07F78294266D5001458C7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE07F77294266D5001458C7 /* MainViewController.swift */; };
@@ -24,6 +26,8 @@
 		2400BA5A294720B700AEBB49 /* DayChooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayChooseViewController.swift; sourceTree = "<group>"; };
 		2400BA5C2947494700AEBB49 /* ChooseHoursViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseHoursViewController.swift; sourceTree = "<group>"; };
 		2400BA5E2947A98700AEBB49 /* ChooseRestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseRestViewController.swift; sourceTree = "<group>"; };
+		2400BA602949A73000AEBB49 /* ColorFromHexExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFromHexExtension.swift; sourceTree = "<group>"; };
+		2400BA642949AAE600AEBB49 /* PinElementsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinElementsExtension.swift; sourceTree = "<group>"; };
 		4CE07F70294266D5001458C7 /* Fuctivity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fuctivity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CE07F73294266D5001458C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CE07F75294266D5001458C7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 				2400BA5E2947A98700AEBB49 /* ChooseRestViewController.swift */,
 				4CE07F7C294266D7001458C7 /* Assets.xcassets */,
 				4CE07F81294266D7001458C7 /* Info.plist */,
+				2400BA602949A73000AEBB49 /* ColorFromHexExtension.swift */,
+				2400BA642949AAE600AEBB49 /* PinElementsExtension.swift */,
 			);
 			path = Fuctivity;
 			sourceTree = "<group>";
@@ -145,6 +151,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2400BA652949AAE600AEBB49 /* PinElementsExtension.swift in Sources */,
+				2400BA612949A73000AEBB49 /* ColorFromHexExtension.swift in Sources */,
 				2400BA57294523B000AEBB49 /* LogInViewController.swift in Sources */,
 				2400BA59294523D000AEBB49 /* RegisterViewController.swift in Sources */,
 				2400BA5D2947494700AEBB49 /* ChooseHoursViewController.swift in Sources */,

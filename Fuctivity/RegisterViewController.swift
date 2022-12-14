@@ -106,20 +106,7 @@ final class RegisterViewController: UIViewController {
         logInButton.tintColor = .black
         view.addSubview(logInButton)
         
-        logInButton.translatesAutoresizingMaskIntoConstraints = false
-
-        let bottomAnchor = logInButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -view.frame.size.height / 9)
-        let leftAnchor = logInButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20)
-        let rightAnchor = logInButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)
-        let heightAnchor = NSLayoutConstraint(
-            item: logInButton,
-            attribute: NSLayoutConstraint.Attribute.height,
-            relatedBy: NSLayoutConstraint.Relation.equal,
-            toItem: nil,
-            attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 45
-        )
-        
-        NSLayoutConstraint.activate([bottomAnchor, leftAnchor, rightAnchor, heightAnchor])
+        logInButton.setBottomButtonConstraints(view: self.view, button: logInButton)
     }
     
     private func setTextLabel(

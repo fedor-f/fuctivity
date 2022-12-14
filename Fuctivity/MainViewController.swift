@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Fuctivity
 //
-//  Created by Федор Филиппов on 08.12.2022.
+//  Created by Sosin Vladislav on 09.12.2022.
 //
 
 import UIKit
@@ -31,11 +31,6 @@ final class MainViewController: UIViewController {
     private func goToLogInController() {
         let logInVC = LogInViewController()
         self.navigationController?.pushViewController(logInVC, animated: true)
-        
-        //logInVC.modalPresentationStyle = .fullScreen
-        //logInVC.modalTransitionStyle = .crossDissolve
-        //present(logInVC, animated: true)
-        
     }
     
     @objc
@@ -127,20 +122,7 @@ final class MainViewController: UIViewController {
         registerButton.tintColor = .black
         view.addSubview(registerButton)
         
-        registerButton.translatesAutoresizingMaskIntoConstraints = false
-
-        let bottomAnchor = registerButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -view.frame.size.height / 9)
-        let leftAnchor = registerButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20)
-        let rightAnchor = registerButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)
-        let heightAnchor = NSLayoutConstraint(
-            item: registerButton,
-            attribute: NSLayoutConstraint.Attribute.height,
-            relatedBy: NSLayoutConstraint.Relation.equal,
-            toItem: nil,
-            attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 45
-        )
-            
-        NSLayoutConstraint.activate([bottomAnchor, leftAnchor, rightAnchor, heightAnchor])
+        registerButton.setBottomButtonConstraints(view: self.view, button: registerButton)
     }
     
     private func setLogInButton() {
@@ -175,16 +157,5 @@ final class MainViewController: UIViewController {
         let bottomAnchor = betweenLabel.bottomAnchor.constraint(equalTo: registerButton.topAnchor, constant: -10)
         betweenLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         NSLayoutConstraint.activate([bottomAnchor])
-    }
-}
-
-extension UIColor {
-    convenience init(hex: Int) {
-        let components = (
-            R: CGFloat((hex >> 16) & 0xff) / 255,
-            G: CGFloat((hex >> 08) & 0xff) / 255,
-            B: CGFloat((hex >> 00) & 0xff) / 255
-        )
-        self.init(red: components.R, green: components.G, blue: components.B, alpha: 1)
     }
 }

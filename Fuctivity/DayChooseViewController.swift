@@ -117,19 +117,6 @@ final class DayChooseViewController: UIViewController {
         nextStepButton.tintColor = .black
         view.addSubview(nextStepButton)
         
-        nextStepButton.translatesAutoresizingMaskIntoConstraints = false
-
-        let bottomAnchor = nextStepButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -view.frame.size.height / 9)
-        let leftAnchor = nextStepButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20)
-        let rightAnchor = nextStepButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)
-        let heightAnchor = NSLayoutConstraint(
-            item: nextStepButton,
-            attribute: NSLayoutConstraint.Attribute.height,
-            relatedBy: NSLayoutConstraint.Relation.equal,
-            toItem: nil,
-            attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 45
-        )
-            
-        NSLayoutConstraint.activate([bottomAnchor, leftAnchor, rightAnchor, heightAnchor])
+        nextStepButton.setBottomButtonConstraints(view: self.view, button: nextStepButton)
     }
 }
