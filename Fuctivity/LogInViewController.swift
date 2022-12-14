@@ -28,7 +28,7 @@ final class LogInViewController: UIViewController {
         setTextLabel(
             label: textLabel,
             x: 25,
-            y: view.frame.size.height / 2.375,
+            y: view.frame.size.height / 2.55,
             width: view.frame.size.width,
             height: view.frame.size.width / 11,
             text: "Вход в аккаунт",
@@ -61,7 +61,7 @@ final class LogInViewController: UIViewController {
             view: view,
             element: textField,
             equalToBottomAnchor: logInButton.bottomAnchor,
-            bAnchorSize: -view.frame.size.height / CGFloat(9) - (view.frame.size.height / CGFloat(13)) * CGFloat(tag),
+            bAnchorSize: -view.frame.size.height / CGFloat(4.5) - (view.frame.size.height / CGFloat(17)) * CGFloat(tag),
             leftAnchorSize: 40
         )
     }
