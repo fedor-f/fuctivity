@@ -104,7 +104,12 @@ final class ChooseRestViewController: UIViewController {
         nextStepButton.tintColor = .black
         view.addSubview(nextStepButton)
         
-        nextStepButton.setBottomButtonConstraints(view: self.view, button: nextStepButton)
+        nextStepButton.setButtonConstraints(
+            view: view,
+            element: nextStepButton,
+            equalToBottomAnchor: view.bottomAnchor,
+            bAnchorSize: -view.frame.size.height / 9
+        )
     }
     
     private func setTextField() {

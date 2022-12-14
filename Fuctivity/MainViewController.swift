@@ -122,7 +122,12 @@ final class MainViewController: UIViewController {
         registerButton.tintColor = .black
         view.addSubview(registerButton)
         
-        registerButton.setBottomButtonConstraints(view: self.view, button: registerButton)
+        registerButton.setButtonConstraints(
+            view: view,
+            element: registerButton,
+            equalToBottomAnchor: view.bottomAnchor,
+            bAnchorSize: -view.frame.size.height / 9
+        )
     }
     
     private func setLogInButton() {
@@ -133,20 +138,12 @@ final class MainViewController: UIViewController {
         logInButton.tintColor = .black
         view.addSubview(logInButton)
         
-        logInButton.translatesAutoresizingMaskIntoConstraints = false
-
-        let bottomAnchor = logInButton.bottomAnchor.constraint(equalTo: betweenLabel.topAnchor, constant: -10)
-        let leftAnchor = logInButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20)
-        let rightAnchor = logInButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)
-        let heightAnchor = NSLayoutConstraint(
-            item: logInButton,
-            attribute: NSLayoutConstraint.Attribute.height,
-            relatedBy: NSLayoutConstraint.Relation.equal,
-            toItem: nil,
-            attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 45
+        logInButton.setButtonConstraints(
+            view: view,
+            element: logInButton,
+            equalToBottomAnchor: betweenLabel.topAnchor,
+            bAnchorSize: -10
         )
-        
-        NSLayoutConstraint.activate([bottomAnchor, leftAnchor, rightAnchor, heightAnchor])
     }
     
     private func setBetweenLabel() {

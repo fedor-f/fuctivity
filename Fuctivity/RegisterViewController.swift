@@ -12,6 +12,7 @@ final class RegisterViewController: UIViewController {
     var logInButton = UIButton(type: .system)
     var textLabel = UILabel()
     
+    // Data to save.
     var nameTextField = UITextField()
     var emailTextField = UITextField()
     var passwordTextField = UITextField()
@@ -29,6 +30,12 @@ final class RegisterViewController: UIViewController {
     
     @objc
     private func goToNextController() {
+        if nameTextField.text?.isEmpty ?? false &&
+            emailTextField.text?.isEmpty ?? false &&
+            passwordTextField.text?.isEmpty ?? false {
+            return
+        }
+        
         let dayChooseVC = DayChooseViewController()
         self.navigationController?.pushViewController(dayChooseVC, animated: true)
     }
@@ -69,20 +76,13 @@ final class RegisterViewController: UIViewController {
             
         view.addSubview(textField)
         
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        
-        let bottomAnchor = textField.bottomAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: -view.frame.size.height / CGFloat(9) - (view.frame.size.height / CGFloat(13)) * CGFloat(tag))
-        let leftAnchor = textField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40)
-        let rightAnchor = textField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)
-        let heightAnchor = NSLayoutConstraint(
-            item: textField,
-            attribute: NSLayoutConstraint.Attribute.height,
-            relatedBy: NSLayoutConstraint.Relation.equal,
-            toItem: nil,
-            attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 45
+        textField.setButtonConstraints(
+            view: view,
+            element: textField,
+            equalToBottomAnchor: logInButton.bottomAnchor,
+            bAnchorSize: -view.frame.size.height / CGFloat(9) - (view.frame.size.height / CGFloat(13)) * CGFloat(tag),
+            leftAnchorSize: 40
         )
-        
-        NSLayoutConstraint.activate([bottomAnchor, leftAnchor, rightAnchor, heightAnchor])
     }
     
     private func setImage() {
@@ -106,7 +106,12 @@ final class RegisterViewController: UIViewController {
         logInButton.tintColor = .black
         view.addSubview(logInButton)
         
-        logInButton.setBottomButtonConstraints(view: self.view, button: logInButton)
+        logInButton.setButtonConstraints(
+            view: view,
+            element: logInButton,
+            equalToBottomAnchor: view.bottomAnchor,
+            bAnchorSize: -view.frame.size.height / 9
+        )
     }
     
     private func setTextLabel(
