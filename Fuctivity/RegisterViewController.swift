@@ -30,9 +30,9 @@ final class RegisterViewController: UIViewController {
     
     @objc
     private func goToNextController() {
-        if nameTextField.text?.isEmpty ?? false &&
-            emailTextField.text?.isEmpty ?? false &&
-            passwordTextField.text?.isEmpty ?? false {
+        if nameTextField.text?.isEmpty ?? true ||
+            emailTextField.text?.isEmpty ?? true ||
+            passwordTextField.text?.isEmpty ?? true {
             return
         }
         
