@@ -8,9 +8,8 @@
 import Foundation
 import UIKit
 
-class ChillHourViewController: UIViewController {
+final class ChillHourViewController: UIViewController {
     
-    let user = User()
     var hoursLabel = UILabel()
     var labelValue = Int()
     let buttonIncrease = UIButton()
@@ -26,7 +25,7 @@ class ChillHourViewController: UIViewController {
         setupDatePicker()
         
         currentDate = Date()
-        labelValue = user.chillHours
+        labelValue = ChillEvent.restHours
         self.view.addSubview(hoursLabel)
         hoursLabel.text = "\(labelValue) ч. отдыха"
         hoursLabel.pinCenter(to: self.view.centerXAnchor)
@@ -104,7 +103,7 @@ class ChillHourViewController: UIViewController {
         labelValue += 1
         hoursLabel.text = "\(labelValue) ч. отдыха"
         
-        if labelValue == 5 {
+        if labelValue == ChillEvent.restHours {
             buttonIncrease.isEnabled = false
         } else {
             buttonIncrease.isEnabled = true
@@ -126,7 +125,7 @@ class ChillHourViewController: UIViewController {
             buttonDecrease.isEnabled = true
         }
         
-        if labelValue == 4 {
+        if labelValue == ChillEvent.restHours - 1 {
             buttonIncrease.isEnabled = true
         }
     }

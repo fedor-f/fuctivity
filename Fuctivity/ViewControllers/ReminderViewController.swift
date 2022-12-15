@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import CalendarKit
 
-class ReminderViewController: UIViewController {
+final class ReminderViewController: UIViewController {
     
     let hourLabel = UIButton()
     let continueButton = UIButton()
@@ -119,11 +119,11 @@ class ReminderViewController: UIViewController {
         let someDateTimeStart = formatter
             .date(from: "\(year)/\(month)/\(day) \(startTimePicker.calendar.component(.hour, from: startTimePicker.date)):\(startTimePicker.calendar.component(.minute, from: startTimePicker.date))")!
         
-        var endHour = (startTimePicker.calendar.component(.hour, from: startTimePicker.date) + ChillEvent.time)
+        let endHour = (startTimePicker.calendar.component(.hour, from: startTimePicker.date) + ChillEvent.time)
         
         if endHour > 24 {
-            var increment = endHour / 24
-            var dayInt = Int(day)! + increment
+            let increment = endHour / 24
+            let dayInt = Int(day)! + increment
             
             day = String(dayInt)
         }
@@ -131,7 +131,6 @@ class ReminderViewController: UIViewController {
         let someDateTimeEnd = formatter
             .date(from: "\(year)/\(month)/\(day) \(endHour % 24):\(startTimePicker.calendar.component(.minute, from: startTimePicker.date))")!
 
-        print(someDateTimeEnd)
         event.dateInterval = DateInterval(start: someDateTimeStart, end: someDateTimeEnd)
 
         event.text = ChillEvent.eventDescription
@@ -139,6 +138,15 @@ class ReminderViewController: UIViewController {
         event.lineBreakMode = .byTruncatingTail
 
         ChillEvent.eventStorage.append(event)
+        
+        ChillEvent.eventNumber += 1
+        
+        UserDefaults.standard.set(event.text, forKey: "eventText\(ChillEvent.eventNumber)")
+        
+        UserDefaults.standard.set(event.dateInterval.start, forKey: "startInterval\(ChillEvent.eventNumber)")
+        UserDefaults.standard.set(event.dateInterval.end, forKey: "endInterval\(ChillEvent.eventNumber)")
+        
+        UserDefaults.standard.set(ChillEvent.eventNumber, forKey: "eventNumber")
         
         createNotification(day: Int(day)!,
                            month: Int(month)!,
