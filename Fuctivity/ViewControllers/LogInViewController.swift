@@ -100,6 +100,19 @@ final class LogInViewController: UIViewController {
     
     @objc
     private func loginAction() {
+        if nameTextField.text ?? "" != ChillEvent.username ||
+            emailTextField.text ?? "" != ChillEvent.email ||
+            passwordTextField.text ?? "" != ChillEvent.password {
+            
+            let dialog = UIAlertController(title:"Пользоатель не найден", message:"Неверно введены данные для входа",
+                                           preferredStyle: .alert)
+            let okAction = UIAlertAction(title:"OK", style: .default, handler: {(alert:UIAlertAction!)-> Void in})
+            dialog.addAction(okAction)
+            self.present(dialog, animated:true, completion:nil)
+            
+            return
+        }
+        
         self.navigationController?.pushViewController(calendarViewController, animated: true)
     }
     

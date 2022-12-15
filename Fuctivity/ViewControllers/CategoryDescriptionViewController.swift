@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class CategoryDescriptionViewController: UIViewController {
+final class CategoryDescriptionViewController: UIViewController {
     
     let continueButton = UIButton()
     let textView = UITextView()

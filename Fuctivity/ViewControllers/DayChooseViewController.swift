@@ -78,6 +78,11 @@ final class DayChooseViewController: UIViewController {
     
     @objc
     private func goToNextController() {
+        for button in buttons {
+            if button.backgroundColor == UIColor(hex: 0xFFBA52) {
+                ChillEvent.days += weekDayNumber(day: (button.titleLabel?.text)!)
+            }
+        }
         let chooseHoursVC = ChooseHoursViewController()
         self.navigationController?.pushViewController(chooseHoursVC, animated: true)
     }
@@ -107,6 +112,27 @@ final class DayChooseViewController: UIViewController {
     private func becomeOrange(sender: UIButton) {
         sender.backgroundColor =
         sender.backgroundColor == .white ? UIColor(hex: 0xFFBA52) : .white
+    }
+    
+    private func weekDayNumber(day: String) -> String {
+        switch day {
+        case "Вс":
+            return "1"
+        case "Пн":
+            return "2"
+        case "Вт":
+            return "3"
+        case "Ср":
+            return "4"
+        case "Чт":
+            return "5"
+        case "Пт":
+            return "6"
+        case "Сб":
+            return "7"
+        default:
+            return "0"
+        }
     }
     
     private func setNextButton() {

@@ -10,11 +10,10 @@ import UIKit
 import CalendarKit
 import EventKit
 
-class CalendarViewController: DayViewController {
-    
-    private let eventStore = EKEventStore()
+final class CalendarViewController: DayViewController {
     
     let chillHoursViewController = ChillHourViewController()
+    let button = UIButton()
     
     override func eventsForDate(_ date: Date) -> [EventDescriptor] {
         return ChillEvent.eventStorage
@@ -23,11 +22,9 @@ class CalendarViewController: DayViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Fuctivity"
-        //navigationController?.navigationBar.backgroundColor = UIColorFromRGB(rgbValue: 0xaf95fc)
 
         setStyle()
         
-        let button = UIButton()
         self.view.addSubview(button)
         button.setTitle("Нажмите, чтобы распределить", for: .normal)
         button.setTitleColor(.black, for: .normal)
@@ -54,9 +51,13 @@ class CalendarViewController: DayViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.barStyle = UIBarStyle.black
+        
+        if !ChillEvent.days.contains(String(Calendar.current.component(.weekday, from: self.dayView.state!.selectedDate))) {
+            button.removeFromSuperview()
+        }
+        dayView.autoScrollToFirstEvent = true
         getNotified()
         reloadData()
-        //navigationController?.navigationBar.backgroundColor = UIColorFromRGB(rgbValue: 0xaf95fc)
     }
     
     @objc

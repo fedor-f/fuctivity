@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4C012E692944A53800C9592C /* ChillHourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C012E682944A53800C9592C /* ChillHourViewController.swift */; };
-		4C012E6B2944C3B800C9592C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C012E6A2944C3B800C9592C /* User.swift */; };
 		4C012E6D2944DAC300C9592C /* ChillEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C012E6C2944DAC300C9592C /* ChillEvent.swift */; };
-		4C012E6F2944DC3A00C9592C /* CategoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C012E6E2944DC3A00C9592C /* CategoryStorage.swift */; };
 		4C012E712944F04000C9592C /* CategoryDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C012E702944F04000C9592C /* CategoryDescriptionViewController.swift */; };
 		4C43E11E294A1C4500A11C06 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C43E11D294A1C4500A11C06 /* MainViewController.swift */; };
 		4C43E120294A1C5700A11C06 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C43E11F294A1C5700A11C06 /* RegisterViewController.swift */; };
@@ -23,7 +21,6 @@
 		4CD51F9B2945D863007581CF /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD51F9A2945D863007581CF /* ReminderViewController.swift */; };
 		4CE07F74294266D5001458C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE07F73294266D5001458C7 /* AppDelegate.swift */; };
 		4CE07F76294266D5001458C7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE07F75294266D5001458C7 /* SceneDelegate.swift */; };
-		4CE07F78294266D5001458C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE07F77294266D5001458C7 /* ViewController.swift */; };
 		4CE07F7D294266D7001458C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CE07F7C294266D7001458C7 /* Assets.xcassets */; };
 		4CE07F8829426F86001458C7 /* UIViewPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE07F8729426F86001458C7 /* UIViewPin.swift */; };
 		4CE07F8A2942720B001458C7 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE07F892942720B001458C7 /* CalendarViewController.swift */; };
@@ -32,9 +29,7 @@
 
 /* Begin PBXFileReference section */
 		4C012E682944A53800C9592C /* ChillHourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChillHourViewController.swift; sourceTree = "<group>"; };
-		4C012E6A2944C3B800C9592C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4C012E6C2944DAC300C9592C /* ChillEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChillEvent.swift; sourceTree = "<group>"; };
-		4C012E6E2944DC3A00C9592C /* CategoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryStorage.swift; sourceTree = "<group>"; };
 		4C012E702944F04000C9592C /* CategoryDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDescriptionViewController.swift; sourceTree = "<group>"; };
 		4C43E11D294A1C4500A11C06 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4C43E11F294A1C5700A11C06 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -48,7 +43,6 @@
 		4CE07F70294266D5001458C7 /* Fuctivity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fuctivity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CE07F73294266D5001458C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CE07F75294266D5001458C7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4CE07F77294266D5001458C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4CE07F7C294266D7001458C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CE07F81294266D7001458C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CE07F8729426F86001458C7 /* UIViewPin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewPin.swift; sourceTree = "<group>"; };
@@ -86,7 +80,6 @@
 				4C43E121294A1C6100A11C06 /* LogInViewController.swift */,
 				4C43E11F294A1C5700A11C06 /* RegisterViewController.swift */,
 				4C43E11D294A1C4500A11C06 /* MainViewController.swift */,
-				4CE07F77294266D5001458C7 /* ViewController.swift */,
 				4CE07F892942720B001458C7 /* CalendarViewController.swift */,
 				4C012E682944A53800C9592C /* ChillHourViewController.swift */,
 				4C012E702944F04000C9592C /* CategoryDescriptionViewController.swift */,
@@ -98,9 +91,7 @@
 		4C012E74294528D500C9592C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4C012E6E2944DC3A00C9592C /* CategoryStorage.swift */,
 				4C012E6C2944DAC300C9592C /* ChillEvent.swift */,
-				4C012E6A2944C3B800C9592C /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -214,18 +205,15 @@
 				4C43E126294A1C7400A11C06 /* ChooseRestViewController.swift in Sources */,
 				4C43E12A294A1CA400A11C06 /* PinElementsExtension.swift in Sources */,
 				4C43E11E294A1C4500A11C06 /* MainViewController.swift in Sources */,
-				4CE07F78294266D5001458C7 /* ViewController.swift in Sources */,
 				4C012E712944F04000C9592C /* CategoryDescriptionViewController.swift in Sources */,
 				4CE07F74294266D5001458C7 /* AppDelegate.swift in Sources */,
 				4C43E12C294A1CB300A11C06 /* ColorFromHexExtension.swift in Sources */,
 				4C43E124294A1C6A00A11C06 /* DayChooseViewController.swift in Sources */,
-				4C012E6B2944C3B800C9592C /* User.swift in Sources */,
 				4CE07F8829426F86001458C7 /* UIViewPin.swift in Sources */,
 				4C43E122294A1C6100A11C06 /* LogInViewController.swift in Sources */,
 				4CE07F76294266D5001458C7 /* SceneDelegate.swift in Sources */,
 				4C43E120294A1C5700A11C06 /* RegisterViewController.swift in Sources */,
 				4CD51F9B2945D863007581CF /* ReminderViewController.swift in Sources */,
-				4C012E6F2944DC3A00C9592C /* CategoryStorage.swift in Sources */,
 				4C012E692944A53800C9592C /* ChillHourViewController.swift in Sources */,
 				4C012E6D2944DAC300C9592C /* ChillEvent.swift in Sources */,
 				4C43E128294A1C7C00A11C06 /* ChooseHoursViewController.swift in Sources */,

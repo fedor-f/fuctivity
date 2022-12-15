@@ -117,6 +117,19 @@ final class ChooseRestViewController: UIViewController {
     
     @objc
     private func goToCalendar() {
+        ChillEvent.restHours = Int(textField.text ?? "") ?? 5
+        
+        if let appDomain = Bundle.main.bundleIdentifier {
+            UserDefaults.standard.removePersistentDomain(forName: appDomain)
+        }
+        
+        ChillEvent.eventStorage = []
+        
+        UserDefaults.standard.set(ChillEvent.username, forKey: "username")
+        UserDefaults.standard.set(ChillEvent.email, forKey: "email")
+        UserDefaults.standard.set(ChillEvent.password, forKey: "password")
+        UserDefaults.standard.set(ChillEvent.restHours, forKey: "restHours")
+        
         self.navigationController?.pushViewController(calendarViewController, animated: true)
     }
     

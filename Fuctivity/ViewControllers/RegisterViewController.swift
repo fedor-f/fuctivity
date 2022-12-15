@@ -36,6 +36,10 @@ final class RegisterViewController: UIViewController {
             return
         }
         
+        ChillEvent.username = nameTextField.text ?? ""
+        ChillEvent.email = emailTextField.text ?? ""
+        ChillEvent.password = passwordTextField.text ?? ""
+        
         let dayChooseVC = DayChooseViewController()
         self.navigationController?.pushViewController(dayChooseVC, animated: true)
     }
