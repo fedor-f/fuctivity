@@ -10,7 +10,7 @@ import UIKit
 import CalendarKit
 
 final class ReminderViewController: UIViewController {
-    
+    // MARK: - Public Properties
     let hourLabel = UIButton()
     let continueButton = UIButton()
     let timeLabel = UILabel()
@@ -59,6 +59,7 @@ final class ReminderViewController: UIViewController {
         return datePicker
     }()
     
+    // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -74,6 +75,7 @@ final class ReminderViewController: UIViewController {
         hourLabel.setTitle("\(ChillEvent.time) ч. отдыха", for: .normal)
     }
     
+    // MARK: - private Methods
     private func setupHoursLabel() {
         self.view.addSubview(hourLabel)
         hourLabel.setTitle("\(ChillEvent.time) ч. отдыха", for: .normal)

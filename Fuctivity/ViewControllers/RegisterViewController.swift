@@ -8,6 +8,7 @@
 import UIKit
 
 final class RegisterViewController: UIViewController {
+    // MARK: - Public Properties
     var imageView = UIImageView()
     var logInButton = UIButton(type: .system)
     var textLabel = UILabel()
@@ -17,6 +18,7 @@ final class RegisterViewController: UIViewController {
     var emailTextField = UITextField()
     var passwordTextField = UITextField()
     
+    // MARK: - Override Method
     override func viewDidLoad() {
         super.viewDidLoad()
         setImage()
@@ -24,26 +26,7 @@ final class RegisterViewController: UIViewController {
         addActions()
     }
     
-    private func addActions() {
-        logInButton.addTarget(self, action: #selector(goToNextController), for: .touchUpInside)
-    }
-    
-    @objc
-    private func goToNextController() {
-        if nameTextField.text?.isEmpty ?? true ||
-            emailTextField.text?.isEmpty ?? true ||
-            passwordTextField.text?.isEmpty ?? true {
-            return
-        }
-        
-        ChillEvent.username = nameTextField.text ?? ""
-        ChillEvent.email = emailTextField.text ?? ""
-        ChillEvent.password = passwordTextField.text ?? ""
-        
-        let dayChooseVC = DayChooseViewController()
-        self.navigationController?.pushViewController(dayChooseVC, animated: true)
-    }
-    
+    // MARK: - Private Method (place items on the storyboard)
     private func setElements() {
         setImage()
         
@@ -64,6 +47,28 @@ final class RegisterViewController: UIViewController {
         setTextFields(passwordTextField, text: "Имя пользователя", tag: 2)
     }
     
+    // MARK: - Private Methods (actions with buttons)
+    private func addActions() {
+        logInButton.addTarget(self, action: #selector(goToNextController), for: .touchUpInside)
+    }
+    
+    @objc
+    private func goToNextController() {
+        if nameTextField.text?.isEmpty ?? true ||
+            emailTextField.text?.isEmpty ?? true ||
+            passwordTextField.text?.isEmpty ?? true {
+            return
+        }
+        
+        ChillEvent.username = nameTextField.text ?? ""
+        ChillEvent.email = emailTextField.text ?? ""
+        ChillEvent.password = passwordTextField.text ?? ""
+        
+        let dayChooseVC = DayChooseViewController()
+        self.navigationController?.pushViewController(dayChooseVC, animated: true)
+    }
+    
+    // MARK: - Private Methods (place certain items on the storyboard)
     private func setTextFields(_ textField: UITextField, text: String, tag: Int) {
         textField.placeholder = text
         textField.font = UIFont.systemFont(ofSize: 25)
@@ -140,4 +145,3 @@ final class RegisterViewController: UIViewController {
         view.addSubview(label)
     }
 }
-

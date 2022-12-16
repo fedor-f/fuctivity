@@ -9,15 +9,19 @@ import Foundation
 import UIKit
 
 final class ChillHourViewController: UIViewController {
-    
+    // MARK: - Public Properties
     var hoursLabel = UILabel()
     var labelValue = Int()
+    
     let buttonIncrease = UIButton()
     let buttonDecrease = UIButton()
+    
     var currentDate = Date()
     let dateLabel = UILabel()
+    
     let categoryDescriptionViewController = CategoryDescriptionViewController()
     
+    // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayer()
@@ -61,6 +65,7 @@ final class ChillHourViewController: UIViewController {
         dateLabel.text = "\(calendarDate.day ?? 0) \(getMonthNameByNumber(calendarDate.month ?? 0)) \(calendarDate.year ?? 0)"
     }
     
+    // MARK: - Private Methods (place certain items on the storyboard)
     func setupLayer() {
         let layer = CAGradientLayer()
         
@@ -90,6 +95,7 @@ final class ChillHourViewController: UIViewController {
         continueButton.pin(to: self.view, [.left: 90, .right: 90])
     }
     
+    // MARK: - Work with actions
     @objc
     private func continueAction() {
         self.navigationController?.pushViewController(self.categoryDescriptionViewController,
@@ -191,6 +197,7 @@ final class ChillHourViewController: UIViewController {
         previousDayButton.addTarget(self, action: #selector(previousDayAction), for: .touchUpInside)
     }
     
+    // MARK: - Month getter
     private func getMonthNameByNumber(_ number: Int) -> String {
         switch number {
         case 1:

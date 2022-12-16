@@ -8,6 +8,7 @@
 import UIKit
 
 final class ChooseHoursViewController: UIViewController {
+    // MARK: - Public Properties
     var boldTextLabel = UILabel()
     var secondTextLabel = UILabel()
     var textField = UITextField()
@@ -17,12 +18,14 @@ final class ChooseHoursViewController: UIViewController {
     var plusButton = UIButton(type: .system)
     var minusButton = UIButton(type: .system)
     
+    // MARK: - Override Method
     override func viewDidLoad() {
         super.viewDidLoad()
         setElements()
         addActions()
     }
     
+    // MARK: - Private Method (place items on the storyboard)
     private func setElements() {
         view.backgroundColor = .white
         setBoldText()
@@ -34,6 +37,7 @@ final class ChooseHoursViewController: UIViewController {
         setTextUnderField()
     }
     
+    // MARK: - Private Methods (actions with buttons)
     private func addActions() {
         nextStepButton.addTarget(self, action: #selector(goToNextController), for: .touchUpInside)
         minusButton.addTarget(self, action: #selector(minusTextField), for: .touchUpInside)
@@ -68,6 +72,7 @@ final class ChooseHoursViewController: UIViewController {
         }
     }
     
+    // MARK: - Private Methods (place certain items on the storyboard)
     private func setBoldText() {
         boldTextLabel.text = """
         Сколько часов вы работаете в рабочий день?

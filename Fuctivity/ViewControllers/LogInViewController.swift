@@ -8,6 +8,7 @@
 import UIKit
 
 final class LogInViewController: UIViewController {
+    // MARK: - Public Properties
     var imageView = UIImageView()
     var logInButton = UIButton(type: .system)
     var textLabel = UILabel()
@@ -19,11 +20,13 @@ final class LogInViewController: UIViewController {
     var emailTextField = UITextField()
     var passwordTextField = UITextField()
     
+    // MARK: - Override Method
     override func viewDidLoad() {
         super.viewDidLoad()
         setElements()
     }
     
+    // MARK: - Private Method (place items on the storyboard)
     private func setElements() {
         setImage()
         
@@ -44,6 +47,43 @@ final class LogInViewController: UIViewController {
         setTextFields(passwordTextField, text: "Имя пользователя", tag: 2)
     }
     
+    // MARK: - Private Methods (actions with buttons)
+    private func setLogInButton() {
+        logInButton.backgroundColor = UIColor(hex: 0x9D9DEE)
+        logInButton.layer.cornerRadius = 12
+        logInButton.setTitle("Войти", for: .normal)
+        logInButton.titleLabel?.font = UIFont.systemFont(ofSize: 22)
+        logInButton.tintColor = .black
+        logInButton.addTarget(self, action: #selector(loginAction), for: .touchUpInside)
+        view.addSubview(logInButton)
+        
+        logInButton.setButtonConstraints(
+            view: view,
+            element: logInButton,
+            equalToBottomAnchor: view.bottomAnchor,
+            bAnchorSize: -view.frame.size.height / 9
+        )
+    }
+    
+    @objc
+    private func loginAction() {
+        if nameTextField.text ?? "" != ChillEvent.username ||
+            emailTextField.text ?? "" != ChillEvent.email ||
+            passwordTextField.text ?? "" != ChillEvent.password {
+            
+            let dialog = UIAlertController(title:"Пользоатель не найден", message:"Неверно введены данные для входа",
+                                           preferredStyle: .alert)
+            let okAction = UIAlertAction(title:"OK", style: .default, handler: {(alert:UIAlertAction!)-> Void in})
+            dialog.addAction(okAction)
+            self.present(dialog, animated:true, completion:nil)
+            
+            return
+        }
+        
+        self.navigationController?.pushViewController(calendarViewController, animated: true)
+    }
+    
+    // MARK: - Private Methods (place certain items on the storyboard)
     private func setTextFields(_ textField: UITextField, text: String, tag: Int) {
         textField.placeholder = text
         textField.font = UIFont.systemFont(ofSize: 25)
@@ -79,41 +119,6 @@ final class LogInViewController: UIViewController {
         ))
         imageView.image = UIImage(named: "top_screen_honey")
         view.addSubview(imageView)
-    }
-    
-    private func setLogInButton() {
-        logInButton.backgroundColor = UIColor(hex: 0x9D9DEE)
-        logInButton.layer.cornerRadius = 12
-        logInButton.setTitle("Войти", for: .normal)
-        logInButton.titleLabel?.font = UIFont.systemFont(ofSize: 22)
-        logInButton.tintColor = .black
-        logInButton.addTarget(self, action: #selector(loginAction), for: .touchUpInside)
-        view.addSubview(logInButton)
-        
-        logInButton.setButtonConstraints(
-            view: view,
-            element: logInButton,
-            equalToBottomAnchor: view.bottomAnchor,
-            bAnchorSize: -view.frame.size.height / 9
-        )
-    }
-    
-    @objc
-    private func loginAction() {
-        if nameTextField.text ?? "" != ChillEvent.username ||
-            emailTextField.text ?? "" != ChillEvent.email ||
-            passwordTextField.text ?? "" != ChillEvent.password {
-            
-            let dialog = UIAlertController(title:"Пользоатель не найден", message:"Неверно введены данные для входа",
-                                           preferredStyle: .alert)
-            let okAction = UIAlertAction(title:"OK", style: .default, handler: {(alert:UIAlertAction!)-> Void in})
-            dialog.addAction(okAction)
-            self.present(dialog, animated:true, completion:nil)
-            
-            return
-        }
-        
-        self.navigationController?.pushViewController(calendarViewController, animated: true)
     }
     
     private func setTextLabel(

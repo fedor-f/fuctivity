@@ -8,8 +8,10 @@
 import UIKit
 
 final class DayChooseViewController: UIViewController {
+    // MARK: - Public Properties
     var boldTextLabel = UILabel()
     var secondTextLabel = UILabel()
+    
     var nextStepButton = UIButton(type: .system)
     
     var buttonsColumnSize: Int = 0
@@ -19,6 +21,7 @@ final class DayChooseViewController: UIViewController {
     
     var weekDays: [String] = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
     
+    // MARK: - Override Method
     override func viewDidLoad() {
         super.viewDidLoad()
         buttonsColumnSize = Int(view.frame.size.width / 5.5)
@@ -28,6 +31,7 @@ final class DayChooseViewController: UIViewController {
         addActions()
     }
     
+    // MARK: - Private Method (place items on the storyboard)
     private func setElements() {
         view.backgroundColor = .white
         createButtons(0, 4, Int(view.frame.size.height / 1.9))
@@ -37,6 +41,29 @@ final class DayChooseViewController: UIViewController {
         setNextButton()
     }
     
+    // MARK: - Private Methods (actions with buttons)
+    private func addActions() {
+        nextStepButton.addTarget(self, action: #selector(goToNextController), for: .touchUpInside)
+    }
+    
+    @objc
+    private func goToNextController() {
+        for button in buttons {
+            if button.backgroundColor == UIColor(hex: 0xFFBA52) {
+                ChillEvent.days += weekDayNumber(day: (button.titleLabel?.text)!)
+            }
+        }
+        let chooseHoursVC = ChooseHoursViewController()
+        self.navigationController?.pushViewController(chooseHoursVC, animated: true)
+    }
+    
+    @objc
+    private func becomeOrange(sender: UIButton) {
+        sender.backgroundColor =
+        sender.backgroundColor == .white ? UIColor(hex: 0xFFBA52) : .white
+    }
+    
+    // MARK: - Private Methods (place certain items on the storyboard)
     private func setBoldText() {
         boldTextLabel.text = """
         Отлично!
@@ -72,21 +99,6 @@ final class DayChooseViewController: UIViewController {
         NSLayoutConstraint.activate([topAnchor, leftAnchor, rightAnchor])
     }
     
-    private func addActions() {
-        nextStepButton.addTarget(self, action: #selector(goToNextController), for: .touchUpInside)
-    }
-    
-    @objc
-    private func goToNextController() {
-        for button in buttons {
-            if button.backgroundColor == UIColor(hex: 0xFFBA52) {
-                ChillEvent.days += weekDayNumber(day: (button.titleLabel?.text)!)
-            }
-        }
-        let chooseHoursVC = ChooseHoursViewController()
-        self.navigationController?.pushViewController(chooseHoursVC, animated: true)
-    }
-    
     private func createButtons(_ first: Int, _ second: Int, _ yy: Int) {
         var y = 20
         
@@ -106,12 +118,6 @@ final class DayChooseViewController: UIViewController {
             
             y += buttonsColumnSize + betweenButtonsDistance
         }
-    }
-    
-    @objc
-    private func becomeOrange(sender: UIButton) {
-        sender.backgroundColor =
-        sender.backgroundColor == .white ? UIColor(hex: 0xFFBA52) : .white
     }
     
     private func weekDayNumber(day: String) -> String {

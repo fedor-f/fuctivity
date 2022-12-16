@@ -8,37 +8,25 @@
 import UIKit
 
 final class MainViewController: UIViewController {
+    // MARK: - Public Properties
     var imageView = UIImageView()
+    
     var welcomeLabel = UILabel()
     var restTextLabel = UILabel()
     var optionLabel = UILabel()
-    var logInButton = UIButton(type: .system)
-    var registerButton = UIButton(type: .system)
     var betweenLabel = UILabel()
     
+    var logInButton = UIButton(type: .system)
+    var registerButton = UIButton(type: .system)
+    
+    // MARK: - Override Method
     override func viewDidLoad() {
         super.viewDidLoad()
         setElements()
         addActions()
     }
     
-    private func addActions() {
-        logInButton.addTarget(self, action: #selector(goToLogInController), for: .touchUpInside)
-        registerButton.addTarget(self, action: #selector(goToRegisterController), for: .touchUpInside)
-    }
-    
-    @objc
-    private func goToLogInController() {
-        let logInVC = LogInViewController()
-        self.navigationController?.pushViewController(logInVC, animated: true)
-    }
-    
-    @objc
-    private func goToRegisterController() {
-        let regVC = RegisterViewController()
-        self.navigationController?.pushViewController(regVC, animated: true)
-    }
-
+    // MARK: - Private Method (place items on the storyboard)
     private func setElements() {
         setImage()
         
@@ -76,9 +64,27 @@ final class MainViewController: UIViewController {
         setRegisterButton()
         setBetweenLabel()
         setLogInButton()
-        
     }
     
+    // MARK: - Private Methods (actions with buttons)
+    private func addActions() {
+        logInButton.addTarget(self, action: #selector(goToLogInController), for: .touchUpInside)
+        registerButton.addTarget(self, action: #selector(goToRegisterController), for: .touchUpInside)
+    }
+    
+    @objc
+    private func goToLogInController() {
+        let logInVC = LogInViewController()
+        self.navigationController?.pushViewController(logInVC, animated: true)
+    }
+    
+    @objc
+    private func goToRegisterController() {
+        let regVC = RegisterViewController()
+        self.navigationController?.pushViewController(regVC, animated: true)
+    }
+    
+    // MARK: - Private Methods (place certain items on the storyboard)
     private func setTextLabel(
         label: UILabel,
         x: CGFloat,

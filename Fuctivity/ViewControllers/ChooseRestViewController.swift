@@ -8,10 +8,12 @@
 import UIKit
 
 final class ChooseRestViewController: UIViewController {
+    // MARK: - Public Properties
     var boldTextLabel = UILabel()
     var secondTextLabel = UILabel()
-    var textField = UITextField()
     var textUnderField = UILabel()
+    
+    var textField = UITextField()
     
     let calendarViewController = CalendarViewController()
     
@@ -19,12 +21,14 @@ final class ChooseRestViewController: UIViewController {
     var plusButton = UIButton(type: .system)
     var minusButton = UIButton(type: .system)
     
+    // MARK: - Override Method
     override func viewDidLoad() {
         super.viewDidLoad()
         setElements()
         addActions()
     }
     
+    // MARK: - Private Method (place items on the storyboard)
     private func setElements() {
         view.backgroundColor = .white
         setBoldText()
@@ -36,6 +40,7 @@ final class ChooseRestViewController: UIViewController {
         setTextUnderField()
     }
     
+    // MARK: - Private Methods (actions with buttons)
     private func addActions() {
         minusButton.addTarget(self, action: #selector(minusTextField), for: .touchUpInside)
         plusButton.addTarget(self, action: #selector(plusTextField), for: .touchUpInside)
@@ -63,6 +68,25 @@ final class ChooseRestViewController: UIViewController {
         }
     }
     
+    @objc
+    private func goToCalendar() {
+        ChillEvent.restHours = Int(textField.text ?? "") ?? 5
+        
+        if let appDomain = Bundle.main.bundleIdentifier {
+            UserDefaults.standard.removePersistentDomain(forName: appDomain)
+        }
+        
+        ChillEvent.eventStorage = []
+        
+        UserDefaults.standard.set(ChillEvent.username, forKey: "username")
+        UserDefaults.standard.set(ChillEvent.email, forKey: "email")
+        UserDefaults.standard.set(ChillEvent.password, forKey: "password")
+        UserDefaults.standard.set(ChillEvent.restHours, forKey: "restHours")
+        
+        self.navigationController?.pushViewController(calendarViewController, animated: true)
+    }
+    
+    // MARK: - Private Methods (place certain items on the storyboard)
     private func setBoldText() {
         boldTextLabel.text = """
         Сколько часов ежедневно вы готовы тратить на отдых?
@@ -112,24 +136,6 @@ final class ChooseRestViewController: UIViewController {
             equalToBottomAnchor: view.bottomAnchor,
             bAnchorSize: -view.frame.size.height / 9
         )
-    }
-    
-    @objc
-    private func goToCalendar() {
-        ChillEvent.restHours = Int(textField.text ?? "") ?? 5
-        
-        if let appDomain = Bundle.main.bundleIdentifier {
-            UserDefaults.standard.removePersistentDomain(forName: appDomain)
-        }
-        
-        ChillEvent.eventStorage = []
-        
-        UserDefaults.standard.set(ChillEvent.username, forKey: "username")
-        UserDefaults.standard.set(ChillEvent.email, forKey: "email")
-        UserDefaults.standard.set(ChillEvent.password, forKey: "password")
-        UserDefaults.standard.set(ChillEvent.restHours, forKey: "restHours")
-        
-        self.navigationController?.pushViewController(calendarViewController, animated: true)
     }
     
     private func setTextField() {

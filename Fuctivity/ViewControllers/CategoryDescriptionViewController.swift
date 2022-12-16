@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 final class CategoryDescriptionViewController: UIViewController {
-    
+    // MARK: - Public Properties
     let continueButton = UIButton()
     let textView = UITextView()
     let descriptionLabel = UILabel()
@@ -19,6 +19,7 @@ final class CategoryDescriptionViewController: UIViewController {
     
     let reminderViewController = ReminderViewController()
     
+    // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +38,7 @@ final class CategoryDescriptionViewController: UIViewController {
         navigationController?.navigationBar.barStyle = UIBarStyle.default
     }
     
+    // MARK: - Work with actions
     private func setupContinueButton() {
         self.view.addSubview(continueButton)
         continueButton.setTitle("Продолжить", for: .normal)
@@ -57,6 +59,7 @@ final class CategoryDescriptionViewController: UIViewController {
         ChillEvent.categoryOfEvent = (categoryButton.titleLabel?.text)!
     }
     
+    //MARK: - Private Methods
     private func setupHourInfoLabel() {
         self.view.addSubview(hourLabel)
         hourLabel.setTitle("\(ChillEvent.time) ч. отдыха", for: .normal)

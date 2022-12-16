@@ -11,16 +11,18 @@ import CalendarKit
 import EventKit
 
 final class CalendarViewController: DayViewController {
-    
+    // MARK: - Public Properties
     let chillHoursViewController = ChillHourViewController()
     let button = UIButton()
     
+    // MARK: - Override Methods
     override func eventsForDate(_ date: Date) -> [EventDescriptor] {
         return ChillEvent.eventStorage
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.UIColorFromRGB(rgbValue: 0xeb943d)
         title = "Fuctivity"
 
         setStyle()
@@ -36,18 +38,6 @@ final class CalendarViewController: DayViewController {
         getNotified()
     }
     
-    private func getNotified() {
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(storeChanged(_:)),
-                                               name: .EKEventStoreChanged,
-                                               object: nil)
-    }
-    
-    @objc
-    private func storeChanged(_ notification: Notification) {
-        reloadData()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.barStyle = UIBarStyle.black
@@ -60,11 +50,25 @@ final class CalendarViewController: DayViewController {
         reloadData()
     }
     
+    // MARK: - Work with actions
+    private func getNotified() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(storeChanged(_:)),
+                                               name: .EKEventStoreChanged,
+                                               object: nil)
+    }
+    
+    @objc
+    private func storeChanged(_ notification: Notification) {
+        reloadData()
+    }
+    
     @objc
     public func setEvents() {
         self.navigationController?.pushViewController(self.chillHoursViewController, animated: true)
     }
     
+    //MARK: - Set style of storyboard
     func setStyle() {
         let color = UIColor.UIColorFromRGB(rgbValue: 0xaf95fc)
         var style = CalendarStyle()
