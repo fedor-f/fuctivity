@@ -37,7 +37,6 @@ final class ChooseRestViewController: UIViewController {
     }
     
     private func addActions() {
-        //nextStepButton.addTarget(self, action: #selector(goToNextController), for: .touchUpInside)
         minusButton.addTarget(self, action: #selector(minusTextField), for: .touchUpInside)
         plusButton.addTarget(self, action: #selector(plusTextField), for: .touchUpInside)
     }
